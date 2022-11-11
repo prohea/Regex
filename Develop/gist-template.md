@@ -1,10 +1,10 @@
 # Regex Tutorial
 
-Tutorial explaining regex
+Tutorial explaining regex.
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+Understand the search pattern that regex defines.
 
 ## Table of Contents
 
@@ -89,4 +89,4 @@ To match any variant of separate the regex should be: /sep[ae]r[ae]te/g
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Hope is a coder who enjoys learning new things. Github: (https://github.com/prohea)
