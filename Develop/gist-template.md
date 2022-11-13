@@ -4,7 +4,15 @@ Tutorial explaining regex.
 
 ## Summary
 
-Understand the search pattern that regex defines.
+A __*Regular Expression*__ (__regex__) is a syntax that allows you to match strings with specific patterns. It is a suped-up text search shortcut, but a regular expression __adds the ability to use quantifier, pattern collections, special characters, and capture groups to create extremely advanced search patterns.__ 
+
+Regex can be used any time you __*need to query string-based data*__, such as:
+- *Analyzing command line output*
+- *Parsing user input*
+- *Examining server or program logs*
+- *Handling text files with a consistent syntax, like a CSV*
+- *Reading configuration files*
+- *Searching and refactoring code*
 
 ## Table of Contents
 
@@ -22,7 +30,7 @@ Understand the search pattern that regex defines.
 
 ## Regex Components
 
-### Anchors
+# Anchors
 To match a position instead of any character. Most commonly used anchors are \b^ and $. 
 ^ matches the start of a string while $ matches the end of a string. If you have multiple lines then you can opt for multiline mode i.e m after the second forward slash. /regex/m
 
@@ -30,37 +38,20 @@ Examples:
 /^regex$/mg
 /^\d{4}$/mg
 
-### Quantifiers
-Used for repetition. 
-If you want to match flavor and flavour you may use: /flavou?r
+# Quantifiers
+__*Check to see how many times you should search for a character.*__
+*List of all quantifiers:*
+ ```a|b``` Match either __a__ or __b__ .
+```?``` __Zero__ or __one__.
+```+``` __One__ or __more__.
+```*``` __Zero__ or __more__.
+```{N}``` __*Exactly*__ __N__ number of times (*where N is a number*).
+```{N,}``` __N__ or __more__ number of times (*where N is a number*).
+```{N,M}``` __*Between*__ __N__ and __M__ number of times (*where N and M are number and* **N < M**).
+```*?``` __Zero__ or __more__, but __*stop*__ __after first match__.
+# OR Operator
 
-? as a metacharacter here means zero or one repetition. Simply, it looks to see if that particular character is present or not. Making the character optional. The regex will select if the character is there, and it will also match if the character is not in the test string.
-
-For zero or more repetition * is used. This specific metacharacter will match in case a character has no existence to any number of occurrence.
-
-.* will select any number of characters.
-
-For one or more repetition + is used. + metacharacter will match only if the character or group before + occurs at least once. However, it will match any additional occurrences.
-
-\d+ will match one digit up to any digit number. 
-\d is the shorthand character class for 0-9 and + means one or more repetition. 
-\d+ will match all numbers in the string.
-
-Another form of repetition is to use braces. There are three instances:
-1. {fixed}
-Fixed number of repetition. Within the braces, type the total number of repetitions required to match using digits. As an example, if you wanted to match all four digit numbers simply type: /\d{4}
-This regex will match 1234, 4567, 2589, 5478. It will not match 12, 258, 357, 8, and so on.
-
-2. {min, max}
-Match numbers with a minimum of two digits and a maximum of five digits. Example: /\d{2.5}\
-The regex will match all numbers which are two digits, three digits, four digits and five digits. It will not match one digit or six digit numbers.
-
-3. {min}
-When you have a minimum number of digits required in a number but don't have the information about the maximum number of digits. 
-
-### OR Operator
-
-### Character Classes
+# Character Classes
 A character class or character set may direct regex to match only one character out of two or more. The syntax of a character class is to put two or more characters inside square brackets: [class]
 
 You can put any number of characters in a character class. However, your regex engine is going to match only one out of a given set of characters.
@@ -73,19 +64,49 @@ If you want to match gray or grey: /gr[ae]y/g
 Some words can be misspelled for example the word separate has four possible forms: separate, seperate, separete, seperate
 To match any variant of separate the regex should be: /sep[ae]r[ae]te/g
 
-### Flags
+# Flags
 
-### Grouping and Capturing
+# Grouping and Capturing
+Groups allow you to search for more than one item at a time. Example:
+/(Testing|tests) 123/ig
 
-### Bracket Expressions
+Groups are defined by parenthesis. There are two different types of groups; Capture Groups and Non-Capturing Groups:
+(...) Group matching any three characters
+(?:...) Non-capturing group matching any three characters
+The difference between the two comes up in the conversation when "replace" is part of the equation. 
 
-### Greedy and Lazy Match
+Can also match more than a single group, like both (Testing|tests) and (123)
 
-### Boundaries
+# Bracket Expressions
 
-### Back-references
+# Greedy and Lazy Match
+```+``` Matches __one__ or __more__ characters. This *quantifier* is considered __*greedy*__ by default. Example:
+```Hi+```
+However, if you change it to be __*lazy*__ using a question mark symbol (__?__), the behavior changes. Example: 
+```Hi+?```
+Now, the __*i*__ matcher will try to match as __few__ times as possible. Since the __+__ icon means *one or more*, it will only match *one* __i__. This means that if we input the string *Hiiii*, only *Hi* will be matched. 
+While this isn't particularly useful on its own, when combined with with broader matches like the __.__ symbol, it becomes extremely important. 
+```.``` used to find __any character__. Example:
+```H.*llo``` can match everything from *Hillo* to *Hello* to *Hellollollo*.
+```H.*?llo``` __only__ matches *Hello*.
 
-### Look-ahead and Look-behind
+## Pattern Collections
+Here's a list of the *most common pattern collections*:
+```[A-Z]``` Match __any uppercase character from__ __*A*__ to __*Z*__.
+```[a-z]``` Match __any lowercase character from__ __*a*__ to __*z*__.
+```[0-9]``` Match __*any number*__.
+```[asdf]``` Match __any character that's either__ __*a*__, __*s*__, __*d*__, or __*f*__.
+You can even combine these together:
+```[0-9A-Z]``` __Match any character that's either a number or a capital letter from__ __*A*__ to __*Z*__.
+```[^a-z]``` __Match any__ __*non-lowercase*__ __letter__.
+
+# Boundaries
+
+# Back-references
+
+# Look-ahead and Look-behind
+Extremely powerful. There are four types of lookahead and behinds:
+(?!)
 
 ## Author
 
