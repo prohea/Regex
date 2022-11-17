@@ -65,6 +65,13 @@ Some words can be misspelled for example the word separate has four possible for
 To match any variant of separate the regex should be: /sep[ae]r[ae]te/g
 
 # Flags
+An option parameter to a regex that modifies its behavior of searching.
+```i``` ignore/casing; makes the expression search case-insensitively.
+```g``` global; makes the expression search for all occurrences.
+```s``` dot all; makes the wild character . match newlines as well.
+```m``` multiline; makes the boundary characters ^ and $ match the beginning and ending of every single line instead of the beginning and ending of the whole string.
+```y``` sticky; makes the expression start its searching from the index indicated in its lastIndex property.
+```u``` unicode; makes the expression assume individual characters as code points, not code units, and thus match 32-bit characters as well.
 
 # Grouping and Capturing
 Groups allow you to search for more than one item at a time. Example:
@@ -78,6 +85,7 @@ The difference between the two comes up in the conversation when "replace" is pa
 Can also match more than a single group, like both (Testing|tests) and (123)
 
 # Bracket Expressions
+Brackets indicate a set of characters to match. Any individual character between the brackets will match, and you can also use a hyphen to define a set.
 
 # Greedy and Lazy Match
 ```+``` Matches __one__ or __more__ characters. This *quantifier* is considered __*greedy*__ by default. Example:
@@ -101,13 +109,19 @@ You can even combine these together:
 ```[^a-z]``` __Match any__ __*non-lowercase*__ __letter__.
 
 # Boundaries
+Boundary markers allow yo to anchor the regex pattern to the beginning and end of the line (or string depending on which flags you use). This means that when you want to match a literal you need to escape these special characters with a backslash. 
 
 # Back-references
+Match the same text as previously matched by a capuring group. 
 
 # Look-ahead and Look-behind
 Extremely powerful. There are four types of lookahead and behinds:
-(?!)
+(?!) negative lookahead.
+(?=) positive lookahead.
+(?<=) positive lookbehind.
+(?<!) negative lookbehind.
+
+Lookahead looks like it sounds like: it either looks to see something is after the lookahead group or is not after the lookahead group, depending on the positive or negative.
 
 ## Author
-
 Hope is a coder who enjoys learning new things. Github: (https://github.com/prohea)
