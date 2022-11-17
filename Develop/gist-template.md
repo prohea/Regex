@@ -124,4 +124,5 @@ Extremely powerful. There are four types of lookahead and behinds:
 Lookahead looks like it sounds like: it either looks to see something is after the lookahead group or is not after the lookahead group, depending on the positive or negative.
 
 ## Author
-Hope is a coder who enjoys learning new things. Github: (https://github.com/prohea)
+Hope is a coder who enjoys learning new things. 
+[Github](https://github.com/prohea)
