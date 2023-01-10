@@ -21,6 +21,7 @@ THEN I find a section about the author and a link to the author’s GitHub profi
 # Technologies Used
 HTML, CSS, JavaScript, Node
 # Deployed Project
+https://github.com/prohea/Regexcellent
 
 # Screenshot
 ![Regex]()
